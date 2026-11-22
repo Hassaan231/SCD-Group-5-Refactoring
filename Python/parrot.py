@@ -36,11 +36,11 @@ class Parrot:
             case ParrotType.NORWEGIAN_BLUE:
                 return "Bzzzzzz" if self._voltage > 0 else "..."
 
-    def _compute_base_speed_for_voltage(self, voltage):
-        return min([24.0, voltage * self._base_speed()])
+        def _compute_base_speed_for_voltage(self, voltage):
+        return min([MAX_SPEED, voltage * self._base_speed()])
 
     def _load_factor(self):
-        return 9.0
+        return LOAD_FACTOR
 
-        def _base_speed(self):
+    def _base_speed(self):
         return BASE_SPEED
