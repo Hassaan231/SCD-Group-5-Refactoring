@@ -6,6 +6,9 @@ class ParrotType(Enum):
     AFRICAN = 2
     NORWEGIAN_BLUE = 3
 
+BASE_SPEED = 12.0
+LOAD_FACTOR = 9.0
+MAX_SPEED = 24.0
 
 class Parrot:
 
@@ -39,5 +42,5 @@ class Parrot:
     def _load_factor(self):
         return 9.0
 
-    def _base_speed(self):
-        return 12.0
+        def _base_speed(self):
+        return BASE_SPEED
