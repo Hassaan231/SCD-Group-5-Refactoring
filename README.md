@@ -1,21 +1,46 @@
-_Support this and all my katas via [Patreon](https://www.patreon.com/EmilyBache)_
+# SCD-Group-5-Refactoring: Parrot Refactoring Kata (Python)
 
-Parrot Refactoring Kata
-=======================
+Refactoring of the [Parrot Refactoring Kata](https://github.com/codecop/Parrot-Refactoring-Kata) (Python version).
+**Refactoring focus: Replace Type Code with Polymorphism.**
 
-Can you spot any code smells in this code? I'll give you a clue - a spot of Pol(l)ymorphism should improve matters!
+The legacy `Parrot` class branches on a type code in every method. We refactor it into an abstract `Parrot`
+with `EuropeanParrot`, `AfricanParrot` and `NorwegianBlueParrot` subclasses created by a `create_parrot()` factory.
+External behavior is unchanged, which is verified by characterization tests that pass before and after every refactoring.
 
-Refactor this code, take small steps, run the tests often. See how small and beautiful and polymorphic you can make it.
+Course: Software Construction and Development (SWEN-3113), KFUEIT
 
-I made a [video explaining this kata](https://youtu.be/UxNEHKg_2eA), and videos with worked solutions:
+## Group Members
+| Name | Roll No. |
+|------|----------|
+| Muhammad Hassaan | <roll> |
+| Ahmad bin Khalid | <roll> |
+| Zagham Ali | <roll> |
+| Inzemam Nawaz | <roll> |
 
-* [in C#](https://youtu.be/IvFX8Ivit1k)
-* [in Java](https://youtu.be/7IT6c8wwHs4)
-* [in Python](https://youtu.be/pO_5DQ3vDtc)
+## How to Run
+```bash
+cd Python
+python -m venv venv
+venv\Scripts\activate        # Mac/Linux: source venv/bin/activate
+pip install pytest
+pytest -v
+```
 
-There is also a Guided Learning Hour using this exercise: [Everyday Design Improvements in OO Code](https://youtu.be/NCEWAqEFPic)
+## Project Structure
+- `Python/`: refactored source and tests
+- `docs/baseline-analysis.md`: code smells and chosen refactorings
+- `docs/design-model.png`: target UML class diagram
 
-Acknowlegements
----------------
+## Branching Strategy
+- `main`: protected, releases only (changes via pull request)
+- `develop`: integration branch
+- `refactor/*`: one feature branch per refactoring, merged into `develop` by pull request
 
-This code is heavily inspired by one of the examples in Martin Fowler's book "Refactoring". It's a classic, and if it's not on your bookshelf already I suggest you treat yourself to a copy!
+## Changelog
+### v1.0.0
+- Extracted magic numbers into constants
+- Renamed unclear identifiers and simplified expressions
+- Introduced `create_parrot()` factory method
+- Replaced type-code conditionals with `Parrot` subclasses (polymorphism)
+- Pushed type-specific fields down into the subclasses that use them
+- Added characterization tests, baseline analysis and UML design model
