@@ -12,10 +12,10 @@ Course: Software Construction and Development (SWEN-3113), KFUEIT
 ## Group Members
 | Name | Roll No. |
 |------|----------|
-| Muhammad Hassaan | <swen241101011> |
-| Ahmad bin Khalid | <swen241101014> |
-| Zagham Ali | <swen241101021> |
-| Inzemam Nawaz | <swen241101038> |
+| Muhammad Hassaan | SWEN241101011 |
+| Ahmad bin Khalid | SWEN241101014 |
+| Zagham Ali | SWEN241101021 |
+| Inzemam Nawaz | SWEN241101038 |
 
 ## How to Run
 ```bash
