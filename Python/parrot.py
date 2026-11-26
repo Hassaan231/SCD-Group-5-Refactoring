@@ -12,8 +12,8 @@ MAX_SPEED = 24.0
 
 class Parrot:
 
-    def __init__(self, type_of_parrot, number_of_coconuts, voltage, nailed):
-        self._type = type_of_parrot
+    def __init__(self, parrot_type, number_of_coconuts, voltage, nailed):
+        self._type = parrot_type
         self._number_of_coconuts = number_of_coconuts
         self._voltage = voltage
         self._nailed = nailed
