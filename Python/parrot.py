@@ -37,7 +37,7 @@ class Parrot:
                 return "Bzzzzzz" if self._voltage > 0 else "..."
 
         def _speed_for_voltage(self, voltage):
-        return min([MAX_SPEED, voltage * self._base_speed()])
+        return min(MAX_SPEED, voltage * self._base_speed())
 
     def _load_factor(self):
         return LOAD_FACTOR
