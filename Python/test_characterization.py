@@ -1,9 +1,9 @@
 import pytest
-from parrot import Parrot, ParrotType
+from parrot import create_parrot, ParrotType
 
 
 def build(type_, coconuts=0, voltage=0.0, nailed=False):
-    return Parrot(type_, coconuts, voltage, nailed)
+    return create_parrot(type_, coconuts, voltage, nailed)
 
 
 # ---------- speed ----------
