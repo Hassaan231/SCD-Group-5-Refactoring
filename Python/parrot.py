@@ -48,5 +48,25 @@ class Parrot:
         return BASE_SPEED
 
 
-    def create_parrot(parrot_type, number_of_coconuts=0, voltage=0.0, nailed=False):
-    return Parrot(parrot_type, number_of_coconuts, voltage, nailed)
+class EuropeanParrot(Parrot):
+    pass
+
+
+class AfricanParrot(Parrot):
+    pass
+
+
+class NorwegianBlueParrot(Parrot):
+    pass
+
+
+def create_parrot(parrot_type, number_of_coconuts=0, voltage=0.0, nailed=False):
+    match parrot_type:
+        case ParrotType.EUROPEAN:
+            return EuropeanParrot(parrot_type, number_of_coconuts, voltage, nailed)
+        case ParrotType.AFRICAN:
+            return AfricanParrot(parrot_type, number_of_coconuts, voltage, nailed)
+        case ParrotType.NORWEGIAN_BLUE:
+            return NorwegianBlueParrot(parrot_type, number_of_coconuts, voltage, nailed)
+        case _:
+            raise ValueError(f"Unknown parrot type: {parrot_type}")
