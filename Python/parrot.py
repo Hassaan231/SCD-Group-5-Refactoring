@@ -15,11 +15,6 @@ MAX_SPEED = 24.0
 
 class Parrot(ABC):
 
-    def __init__(self, number_of_coconuts, voltage, nailed):
-        self._number_of_coconuts = number_of_coconuts
-        self._voltage = voltage
-        self._nailed = nailed
-
     @abstractmethod
     def speed(self):
         ...
@@ -38,6 +33,9 @@ class EuropeanParrot(Parrot):
 
 
 class AfricanParrot(Parrot):
+    def __init__(self, number_of_coconuts):
+        self._number_of_coconuts = number_of_coconuts
+
     def speed(self):
         return max(0, BASE_SPEED - LOAD_FACTOR * self._number_of_coconuts)
 
@@ -46,6 +44,10 @@ class AfricanParrot(Parrot):
 
 
 class NorwegianBlueParrot(Parrot):
+    def __init__(self, voltage, nailed):
+        self._voltage = voltage
+        self._nailed = nailed
+
     def speed(self):
         if self._nailed:
             return 0
@@ -58,10 +60,10 @@ class NorwegianBlueParrot(Parrot):
 def create_parrot(parrot_type, number_of_coconuts=0, voltage=0.0, nailed=False):
     match parrot_type:
         case ParrotType.EUROPEAN:
-            return EuropeanParrot(number_of_coconuts, voltage, nailed)
+            return EuropeanParrot()
         case ParrotType.AFRICAN:
-            return AfricanParrot(number_of_coconuts, voltage, nailed)
+            return AfricanParrot(number_of_coconuts)
         case ParrotType.NORWEGIAN_BLUE:
-            return NorwegianBlueParrot(number_of_coconuts, voltage, nailed)
+            return NorwegianBlueParrot(voltage, nailed)
         case _:
             raise ValueError(f"Unknown parrot type: {parrot_type}")
